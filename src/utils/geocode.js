@@ -15,9 +15,10 @@ const geoCode = (address, callback) => {
             callback('Unable to fetch location. Try another search', undefined)
         }
         else {
-            const latitude = body.features[0].center[0]
-            const longitude = body.features[0].center[1]
-            // console.log(`Latitude: ${latitude}\nLongitude: ${longitude}`)
+            const latitude = body.features[0].center[1]
+            const longitude = body.features[0].center[0]
+            console.log(`Latitude: ${latitude}\nLongitude: ${longitude}`)
+            console.log(body.features[0].place_name)
             const location = body.features[0].place_name
             callback(undefined,{latitude,longitude, location})
         }
